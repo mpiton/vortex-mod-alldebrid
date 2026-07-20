@@ -1,0 +1,17 @@
+[plugin]
+name = "vortex-mod-alldebrid"
+version = "1.0.0"
+category = "debrid"
+author = "vortex-community"
+description = "AllDebrid — unrestrict a covered hoster link with a premium API key"
+license = "GPL-3.0"
+# Vortex 0.3.0 is where the Premium → Debrid → Free cascade lands. On an
+# older host a debrid plugin is just another URL claimant and would outrank
+# the hoster plugin that owns the domain.
+min_vortex_version = "0.3.0"
+
+[capabilities]
+# Every call goes to the AllDebrid REST API through the host's
+# `http_request` host function; the API key is read via `get_credential`
+# (scoped to this plugin's own service name) and never leaves the sandbox.
+http = true

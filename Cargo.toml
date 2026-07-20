@@ -1,0 +1,26 @@
+[package]
+name = "vortex-mod-alldebrid"
+version = "1.0.0"
+edition = "2021"
+description = "AllDebrid debrid WASM plugin for Vortex — unrestrict a covered hoster link with an API key"
+license = "GPL-3.0"
+authors = ["vortex-community"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+
+[dependencies]
+extism-pdk = "1.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+
+[dev-dependencies]
+extism = "=1.30.0"
+rstest = "0.24"
